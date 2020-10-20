@@ -34,6 +34,9 @@ def generate(reference_list="",password=""):
 	 	messagebox.showinfo("Check password length","Minimum password length should be 8 characters.")
 	
 	else: # Password generation
+	 	
+	 	# random() generates a value b/w 0 and 1, then it is multiplied by 100 and casted to integer
+	 	# The integer, when divided by the length of reference_list, gives a valid index b/w 0 and length(reference_list)-1
 	 	for i in range(0,length):
 	 		password+=reference_list[(int(random()*100))%(len(reference_list))]
 	 	count1=count2=count3=count4=0
@@ -93,20 +96,20 @@ def successfully_generated(password):
 
 
 # Creating a tkinter window
-root=Tk()
-root.title("Random Password Generator")
-root.geometry("1400x480")
-root.configure(bg="black")
+root=Tk() # Creating the Tk() object
+root.title("Random Password Generator") # title of root window
+root.geometry("1400x480") # length*height of the root window
+root.configure(bg="black") # background colour of the window
 
 # Adding a background image (Make sure you give the absolute path of the image you want to use if the image is not in the same directory as the file)
 bg_image= PhotoImage(file="screenshot1.png") # Background image, you may use the provided image but you may also use your own.
 bg_image_label= Label(root,image=bg_image,height=500,width=1400)
 bg_image_label.pack()
 
-# Creating a canvas area
+# Creating a canvas area and setting its geometry
 canvas=Canvas(root,bg='light blue',height=180, width=300)
 canvas.pack()
-canvas.place(x=470,y=150)
+canvas.place(x=470,y=150) # Placing the canvas using x,y coordinate system
 
 # Asking the user about the password length
 passwd_len=Label(root,text="Enter the length of password to be generated:",font="arial 10")
@@ -125,21 +128,21 @@ strength.place(x=485,y=220)
 
 # Weak password
 passwd_strength=IntVar()
-R1=Radiobutton(root,text="Weak",variable=passwd_strength,value=1)
+R1=Radiobutton(root,text="Weak",variable=passwd_strength,value=1) # Radiobutton
 R1.pack()
 R1.place(x=485,y=250)
 
 # Medium security password
-R2 = Radiobutton(root,text="Medium",variable=passwd_strength,value=2)
+R2 = Radiobutton(root,text="Medium",variable=passwd_strength,value=2) # Radiobutton
 R2.pack()
 R2.place(x=585,y=250)
 
 # Strong password
-R3 = Radiobutton(root,text="Strong",variable=passwd_strength,value=3)
+R3 = Radiobutton(root,text="Strong",variable=passwd_strength,value=3) # Radiobutton
 R3.pack()
 R3.place(x=700,y=250)
 
-# Generating password
+# Button to generate password
 b1=Button(root,text="Generate Password",bg="Black",fg="yellow",relief="raised",command=generate,font="arialblack 9",cursor='pirate')
 b1.pack(side=BOTTOM)
 b1.place(x=564,y=280)
