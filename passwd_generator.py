@@ -2,6 +2,23 @@ from tkinter import *
 from string import *
 from tkinter import messagebox
 from random import random
+from colorama import init
+from colorama import Fore
+
+init() # An initialization function 
+print(Fore.YELLOW) # Changes color of text on CLI to yellow
+
+# ASCII ART
+print(''' 
+ )\ )     (       )\ )   )\ )   (  (       ( /(    )\ )   )\ )   
+(()/(     )\     (()/(  (()/(   )\))(   '  )\())  (()/(  (()/(   
+ /(_)) ((((_)(    /(_))  /(_)) ((_)()\ )  ((_)\    /(_))  /(_))  
+(_))    )\ _ )\  (_))   (_))   _(())\_)()   ((_)  (_))   (_))_   
+| _ \   (_)_\(_) / __|  / __|  \ \((_)/ /  / _ \  | _ \   |   \  
+|  _/    / _ \   \__ \  \__ \   \ \/\/ /  | (_) | |   /   | |) | 
+|_|     /_/ \_\  |___/  |___/    \_/\_/    \___/  |_|_\   |___/ ''')
+
+print(Fore.WHITE) # Changes color of text on CLI to white
 
 ref1=ascii_lowercase+ascii_uppercase
 ref2=digits+ref1
